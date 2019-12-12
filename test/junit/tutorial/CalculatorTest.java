@@ -15,4 +15,11 @@ class CalculatorTest extends Calculator {
         assertThat(actual, is(expected));
     }
 
+    @Test
+    void divideで3と2の除算結果が取得できる() {
+        Calculator calc = new Calculator();
+        float expected = 1.5f;
+        float actual = calc.divide(3, 2);
+        assertThat(actual, is(expected));
+    }
 }
