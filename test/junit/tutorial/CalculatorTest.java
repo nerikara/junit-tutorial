@@ -2,6 +2,7 @@ package junit.tutorial;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -21,5 +22,11 @@ class CalculatorTest extends Calculator {
         float expected = 1.5f;
         float actual = calc.divide(3, 2);
         assertThat(actual, is(expected));
+    }
+
+    @Test
+    void divideで5と0のときIllegalArgumentExceptionを送出する() {
+        Calculator calc = new Calculator();
+        assertThrows(IllegalArgumentException.class, () -> calc.divide(5, 0));
     }
 }
